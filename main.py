@@ -7,10 +7,17 @@ import paramiko
 
 class Server:
 
-    def __init__(self, server_ip, rsa_key, upgrade, username):
+    def __init__(self, server_ip, key_pair, username):
         # TODO -
         self.server_ip = server_ip
-        self.rsa_key = rsa_key
-        self.upgrade = upgrade
+        self.key_pair = key_pair
         self.username = username
 
+def ping(self):
+    # TODO - Use os module to ping the server
+    result = os.system("ping -n 5 %s" % self.server_ip)
+    return result
+
+
+if __name__ == 'main':
+    Ec2 = Server('18.236.67.210', 'KP_Web', 'root')
